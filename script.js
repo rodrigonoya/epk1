@@ -88,22 +88,40 @@ window.addEventListener("wheel", e => {
 
 let touchStartX = 0;
 let touchStartY = 0;
+let touchStartTime = 0;
+let touchTarget = null;
 
 window.addEventListener("touchstart", e => {
-  touchStartX = e.touches[0].clientX;
-  touchStartY = e.touches[0].clientY;
+  if (modal.classList.contains("open")) return;
+  const touch = e.touches[0];
+  touchStartX = touch.clientX;
+  touchStartY = touch.clientY;
+  touchStartTime = Date.now();
+  touchTarget = e.target;
 }, { passive: true });
 
 window.addEventListener("touchend", e => {
-  if (window.innerWidth <= 800 || modal.classList.contains("open")) return;
+  if (modal.classList.contains("open")) return;
 
-  const dx = e.changedTouches[0].clientX - touchStartX;
-  const dy = e.changedTouches[0].clientY - touchStartY;
+  const touch = e.changedTouches[0];
+  const dx = touch.clientX - touchStartX;
+  const dy = touch.clientY - touchStartY;
+  const elapsed = Math.max(Date.now() - touchStartTime, 1);
+  const velocityX = Math.abs(dx) / elapsed;
 
-  if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) {
-    dx < 0 ? next() : prev();
+  // A horizontal gesture changes the artwork. A vertical gesture is left to
+  // the browser, which is important for reading the CV on phones.
+  const horizontal = Math.abs(dx) > Math.abs(dy) * 1.15;
+  const enoughDistance = Math.abs(dx) >= 42;
+  const quickEnough = velocityX >= 0.22 && Math.abs(dx) >= 28;
+
+  if (horizontal && (enoughDistance || quickEnough)) {
+    if (dx < 0) next();
+    else prev();
   }
-});
+
+  touchTarget = null;
+}, { passive: true });
 
 document.querySelectorAll(".video-link, .play-video").forEach(button => {
   button.addEventListener("click", () => openVideo(button.dataset.video));

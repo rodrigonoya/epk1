@@ -23,6 +23,7 @@ button, a { cursor: none; }
 
 #stage {
   display: flex;
+  touch-action: pan-y;
   width: 100%;
   height: 100svh;
   transform: translate3d(0,0,0);
@@ -38,6 +39,17 @@ button, a { cursor: none; }
   overflow: hidden;
   isolation: isolate;
   background: #000 var(--bg) center center / cover no-repeat;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: -2%;
+  z-index: 0;
+  background: var(--bg) center / cover no-repeat;
+  filter: blur(14px);
+  transform: scale(1.05);
+  opacity: .35;
 }
 
 .panel::after {
@@ -213,6 +225,10 @@ button, a { cursor: none; }
 .cv {
   display: flex;
   align-items: stretch;
+}
+
+.cv-backdrop {
+  display: none;
 }
 
 .cv-overlay {
@@ -398,7 +414,23 @@ body.hovering .cursor-ring {
   .brand { font-size: 9px; }
   .counter { font-size: 9px; }
 
-  .panel { background-position: center; }
+  .panel {
+    background-size: auto 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #111;
+  }
+
+  .panel::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: -8%;
+    background: var(--bg) center / cover no-repeat;
+    opacity: .62;
+    filter: blur(22px);
+    transform: scale(1.08);
+  }
 
   .cover h1 {
     font-size: clamp(2.8rem, 12vw, 5rem);
@@ -408,29 +440,53 @@ body.hovering .cursor-ring {
 
   .cv {
     display: block;
-    overflow-y: auto;
+    overflow: hidden;
+    touch-action: pan-y;
+  }
+
+  .cv-backdrop {
+    display: block;
+    position: absolute;
+    z-index: -1;
+    inset: -8%;
+    background: var(--bg) center / cover no-repeat;
+    filter: blur(22px);
+    transform: scale(1.08);
+    opacity: .7;
   }
 
   .cv-overlay {
-    background: rgba(0,0,0,.6);
+    background: linear-gradient(90deg, rgba(0,0,0,.84) 0%, rgba(0,0,0,.72) 56%, rgba(0,0,0,.2) 100%);
   }
 
   .cv-copy {
-    width: 100%;
-    min-height: 72svh;
-    padding: 5.5rem 1.25rem 1.5rem;
+    width: 63%;
+    height: 100%;
+    min-height: 0;
+    padding: 5.2rem 0 4.5rem 1.1rem;
     justify-content: flex-start;
   }
 
-  .cv-copy h2 { margin-bottom: 1.15rem; }
-  .cv-copy p { font-size: .73rem; line-height: 1.4; margin-bottom: .85rem; }
+  .cv-copy h2 {
+    margin-bottom: 1rem;
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
+  .cv-copy p {
+    font-size: clamp(.58rem, 2.25vw, .72rem);
+    line-height: 1.38;
+    margin-bottom: .7rem;
+  }
 
   .portrait {
-    position: relative;
-    width: 100%;
-    height: 55svh;
+    position: absolute;
+    z-index: 4;
+    right: -2%;
+    top: 12%;
+    width: 42%;
+    height: 78%;
     object-fit: contain;
-    object-position: bottom center;
+    object-position: center right;
   }
 
   .caption {
