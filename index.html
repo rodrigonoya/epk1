@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Rodrigo Noya — artista audiovisual, músico y docente.">
+  <title>Rodrigo Noya</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <header class="ui">
+    <button class="brand" data-go="0" aria-label="Ir al inicio">RODRIGO NOYA</button>
+    <div class="counter"><span id="current">01</span> / <span id="total">12</span></div>
+    <button class="menu-toggle" aria-label="Abrir navegación" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <nav class="menu" aria-hidden="true">
+    <div class="menu-inner">
+      <p class="menu-label">ÍNDICE</p>
+      <button data-go="0">01 — Inicio</button>
+      <button data-go="1">02 — CV</button>
+      <button data-go="2">03 — Composición nro. 1</button>
+      <button data-go="3">04 — Composición nro. 2</button>
+      <button data-go="4">05 — Composición nro. 3</button>
+      <button data-go="5">06 — Composición nro. 4</button>
+      <button data-go="6">07 — Composición nro. 5 | Antes sin después</button>
+      <button data-go="7">08 — Composición nro. 6</button>
+      <button data-go="8">09 — Memoria del espacio</button>
+      <button data-go="9">10 — Espacio para la ausencia</button>
+      <button data-go="10">11 — Rejas | Plazas y parques</button>
+      <button data-go="11">12 — El paisaje que habito</button>
+    </div>
+  </nav>
+
+  <main id="stage">
+
+    <section class="panel cover" data-index="0" style="--bg:url('assets/img08.jpeg')">
+      <h1>RODRIGO NOYA</h1>
+      <div class="cover-hint">DESLIZÁ / ← →</div>
+    </section>
+
+    <section class="panel cv" data-index="1" style="--bg:url('assets/img02.jpeg')">
+      <div class="cv-overlay"></div>
+      <div class="cv-copy">
+        <h2>CV</h2>
+        <p>Rodrigo José Noya<br>12/11/1981, Avellaneda, Argentina.</p>
+        <p>Artista audiovisual, músico y docente. Diseñador de Imagen y Sonido (UBA), con formación complementaria en programación y dibujo. Actualmente curso la Maestría en Artes Electrónicas (UNTREF). Desarrollo obras en video, música, documental, vj sets, animación generativa y sitios web.</p>
+        <p>En 2023 presenté la serie documental <em>El piano y el tango</em>, con apoyo de Mecenazgo y el FNA (<a href="https://elpianoyeltango.com.ar" target="_blank" rel="noopener">elpianoyeltango.com.ar</a>). Actualmente trabajo en el documental <em>Casa sin gente</em>, con apoyo del INCAA y Mecenazgo, centrado en las construcciones de la Compañía Ítalo Argentina de Electricidad.</p>
+        <p>Mi obra ha sido presentada en festivales de América, Europa y Asia, entre ellos: BIM, Oberhausen, BAFICI, PLAY, FIVA, IVAHM, Festifreak, ADAF y Escalatrónica.</p>
+        <p>Más info: <a href="https://llenodenada.com.ar" target="_blank" rel="noopener">llenodenada.com.ar</a></p>
+      </div>
+      <img class="portrait" src="assets/img06.jpeg" alt="Rodrigo Noya">
+    </section>
+
+    <section class="panel work" data-index="2" style="--bg:url('assets/img07.jpeg')">
+      <div class="caption"><span>Composición nro. 1</span><a href="https://llenodenada.com.ar/composicion-nro-1" target="_blank" rel="noopener">llenodenada.com.ar/composicion-nro-1 ↗</a></div>
+    </section>
+
+    <section class="panel work" data-index="3" style="--bg:url('assets/img09.jpeg')">
+      <div class="caption"><span>Composición nro. 2</span><a href="https://llenodenada.com.ar/composicion-nro-2" target="_blank" rel="noopener">llenodenada.com.ar/composicion-nro-2 ↗</a></div>
+    </section>
+
+    <section class="panel work" data-index="4" style="--bg:url('assets/img10.jpeg')">
+      <div class="caption"><span>Composición nro. 3</span><a href="https://llenodenada.com.ar/composicion-nro-3" target="_blank" rel="noopener">llenodenada.com.ar/composicion-nro-3 ↗</a></div>
+    </section>
+
+    <section class="panel work video-panel" data-index="5" style="--bg:url('assets/img11.jpeg')">
+      <div class="video-backdrop"></div>
+      <button class="play-video" data-video="8FdxalyLYcI" aria-label="Reproducir Composición nro. 4">▶</button>
+      <div class="caption"><span>Composición nro. 4</span><button class="video-link" data-video="8FdxalyLYcI">VER VIDEO ↗</button></div>
+    </section>
+
+    <section class="panel work video-panel" data-index="6" style="--bg:url('assets/img12.jpeg')">
+      <div class="video-backdrop"></div>
+      <button class="play-video" data-video="HZvqWhF38z8" aria-label="Reproducir Composición nro. 5">▶</button>
+      <div class="caption"><span>Composición nro. 5 | Antes sin después</span><button class="video-link" data-video="HZvqWhF38z8">VER VIDEO ↗</button></div>
+    </section>
+
+    <section class="panel work" data-index="7" style="--bg:url('assets/img13.jpeg')">
+      <div class="caption"><span>Composición nro. 6</span><a href="https://llenodenada.com.ar/composicion-nro-6" target="_blank" rel="noopener">llenodenada.com.ar/composicion-nro-6 ↗</a></div>
+    </section>
+
+    <section class="panel work" data-index="8" style="--bg:url('assets/img01.jpeg')">
+      <div class="caption"><span>Memoria del espacio</span><a href="https://llenodenada.com.ar/memoria-del-espacio" target="_blank" rel="noopener">llenodenada.com.ar/memoria-del-espacio ↗</a></div>
+    </section>
+
+    <section class="panel work" data-index="9" style="--bg:url('assets/img03.jpeg')">
+      <div class="caption"><span>Espacio para la ausencia</span><a href="https://llenodenada.com.ar/espacio-para-la-ausencia" target="_blank" rel="noopener">llenodenada.com.ar/espacio-para-la-ausencia ↗</a></div>
+    </section>
+
+    <section class="panel work" data-index="10" style="--bg:url('assets/img04.jpeg')">
+      <div class="caption"><span>Rejas | Plazas y parques</span><a href="https://llenodenada.com.ar/rejas-plazas-y-parques" target="_blank" rel="noopener">llenodenada.com.ar/rejas-plazas-y-parques ↗</a></div>
+    </section>
+
+    <section class="panel work" data-index="11" style="--bg:url('assets/img05.jpeg')">
+      <div class="caption"><span>El paisaje que habito</span><a href="https://llenodenada.com.ar/el-paisaje-que-habito" target="_blank" rel="noopener">llenodenada.com.ar/el-paisaje-que-habito ↗</a></div>
+    </section>
+
+  </main>
+
+  <div class="progress"><span></span></div>
+
+  <div class="video-modal" aria-hidden="true">
+    <button class="close-video" aria-label="Cerrar video">×</button>
+    <div class="video-frame">
+      <iframe src="" title="Video de Rodrigo Noya" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
