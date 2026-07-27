@@ -21,6 +21,7 @@ function goTo(index) {
   progress.style.width = `${((current + 1) / panels.length) * 100}%`;
 
   panels.forEach((panel, i) => panel.classList.toggle("active", i === current));
+  document.querySelectorAll(".menu-item, .menu-subitem").forEach(item => item.classList.toggle("selected", Number(item.dataset.go) === current));
   closeMenu();
 }
 
