@@ -360,3 +360,26 @@ html,body{cursor:auto}.cursor-dot,.cursor-ring{display:none}
 .menu-work-info{margin-left:43px;font-size:8px}.menu-type{font-size:7px}
 .video-modal{padding:18px}.video-frame{width:100%}.close-video{top:max(10px,env(safe-area-inset-top));right:17px}
 }
+/* V6 */
+@media (max-width:800px){
+  .portrait,.bio .portrait,.cv .portrait,img.portrait{display:none!important}
+  .cv-copy p,.bio-copy p{font-size:.82rem!important;line-height:1.48!important}
+  html,body{overscroll-behavior-x:none}
+}
+.work-details{
+  position:absolute;z-index:20;left:clamp(1.2rem,4vw,4rem);
+  bottom:clamp(4rem,8vh,7rem);width:min(430px,42vw);color:#eee;
+}
+.work-title{
+  margin-bottom:.55rem;font-family:"Antonio","Arial Narrow",sans-serif;
+  font-size:clamp(1.7rem,2.7vw,3rem);line-height:.95;text-transform:uppercase;
+}
+.work-description{margin:0 0 .55rem;font:300 clamp(.68rem,.8vw,.82rem)/1.45 "Montserrat",sans-serif;color:#ddd}
+.work-meta{margin:0 0 .5rem;font:300 9px/1.4 "Montserrat",sans-serif;color:#aaa;letter-spacing:.04em}
+.work-links a{color:var(--orange);text-decoration:none;font:300 9px/1.4 "Montserrat",sans-serif;letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:800px){
+ .work-details{left:1.2rem;right:1.2rem;bottom:max(4.4rem,8vh);width:auto}
+ .work-title{font-size:clamp(1.7rem,8vw,2.7rem)}
+ .work-description{font-size:.76rem;line-height:1.45}
+ .work-meta,.work-links a{font-size:8px}
+}
